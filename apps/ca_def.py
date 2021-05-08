@@ -19,7 +19,12 @@ from dash.dependencies import Input, Output
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("data/cancer.pkl")
+# df = pd.read_pickle("data/cancer.pkl")
+
+""" TESTING OUT USING FEATHER FILES TO REDUCE MEMORY USAGE FOR HEROKU DEPLOYMENT """
+df = pd.read_feather("data/cancer.ftr", columns=None).set_index(['SubjectId'])
+df.drop(columns=['index'], inplace=True)
+df.reset_index(inplace=True)
 
 start_lst = ['All']
 df.sort_values(by=['Firm'], inplace=True)

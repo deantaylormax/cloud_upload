@@ -18,7 +18,13 @@ from dash.dependencies import Input, Output
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("data/master_usage.pkl")
+# df = pd.read_pickle("data/master_usage.pkl")
+
+df = pd.read_feather("data/master_usage.ftr", columns=None).set_index(['SubjectId'])
+df.drop(columns=['index'], inplace=True)
+df.reset_index(inplace=True)
+
+
 dosages = ['1_mg/ml', '25_mg', '15_mg/ml', '50_mg/100ml', '75_mg', '150_mg', '300_mg', 'Other']
 
 #create firm list

@@ -8,9 +8,15 @@ import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
-df = pd.read_pickle('data/master_usage.pkl')
-cancer = pd.read_pickle('data/cancer.pkl')
+# df = pd.read_pickle('data/master_usage.pkl')
+df = pd.read_feather("data/master_usage.ftr", columns=None).set_index(['SubjectId'])
+df.drop(columns=['index'], inplace=True)
+df.reset_index(inplace=True)
 
+# cancer = pd.read_pickle('data/cancer.pkl')
+cancer = pd.read_feather("data/cancer.ftr", columns=None).set_index(['SubjectId'])
+cancer.drop(columns=['index'], inplace=True)
+cancer.reset_index(inplace=True)
 
 # just_states = df[['SubjectId', 'formulation', 'state_cur', 'State_use']]
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']

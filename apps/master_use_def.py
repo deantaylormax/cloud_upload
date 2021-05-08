@@ -18,7 +18,14 @@ from dash.dependencies import Input, Output
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("data/master_usage.pkl")
+# df = pd.read_pickle("data/master_usage.pkl")
+
+df = pd.read_feather("data/master_usage.ftr", columns=None).set_index(['SubjectId'])
+df.drop(columns=['index'], inplace=True)
+df.reset_index(inplace=True)
+
+
+
 dosages = ['1_mg/ml', '25_mg', '15_mg/ml', '50_mg/100ml', '75_mg', '150_mg', '300_mg', 'Other']
 retailer_lst = ['All','Albertsons', 'Amazon','Costco','CVS','H_E_Butt','Cigna_Express_Scripts','Duane_Reed', 'Giant_Eagle', 'H_E_Butt', 'Humana_Pharmacy_Solutions','Hy-Vee', 'Kroger', 'Medicine_Shoppe', 'Publix','Rite_Aid', 'Shoprite_Supermarkets','Smith\'s_Food_and_Drug', 'Target', 'Walgreens','Walmart', 'Winn_Dixie']
 retailer_options = [{'label':i.replace("_", ' '), 'value':i} for i in retailer_lst]
@@ -342,11 +349,11 @@ def set_checklist_options(formulation):
 
 # # """for the delivery checklist """
 @app.callback(
-    Output("6-delivery-method", 'options'),
-    Output("6-delivery-method", 'value'),
-    Input("7-form-check", 'value'),
-    Input("6-dosage-check", 'value'))
-def set_checklist_options(formulation, dosage):
+    Output("6-deliver-method", "options"),
+    Output("6-delivery-method", "value"),
+    Input("7-form-check", "value"),
+    Input("6-dosage-check", "value"))
+def set_formulation_options(formulation, dosage):
     admin_df = df[(df['formulation'].isin(formulation)) & (df['dosage'].isin(dosage))]
     deliv_meth = list(set(admin_df['admin_method']))
     deliv_meth_fin = sorted(deliv_meth, reverse=True)

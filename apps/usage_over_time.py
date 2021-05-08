@@ -10,8 +10,19 @@ import dash_bootstrap_components as dbc
 
 
 df = pd.read_pickle("data/use_over_time.pkl")
+
+df = pd.read_feather("data/use_over_time.ftr", columns=None).set_index(['SubjectId'])
+df.drop(columns=['index'], inplace=True)
+df.reset_index(inplace=True)
+
+
 all_formulations = df.formulation.unique()
 main_usage = pd.read_pickle("data/master_usage.pkl")
+
+main_usage = pd.read_feather("data/master_usage.ftr", columns=None).set_index(['SubjectId'])
+main_usage.drop(columns=['index'], inplace=True)
+main_usage.reset_index(inplace=True)
+
 google = pd.read_csv("data/google_final.csv")
 
 from app import app
