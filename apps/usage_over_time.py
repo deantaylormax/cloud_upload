@@ -9,10 +9,10 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
 
-df = pd.read_pickle("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/use_over_time.pkl")
+df = pd.read_pickle("data/use_over_time.pkl")
 all_formulations = df.formulation.unique()
-main_usage = pd.read_pickle("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/master_usage.pkl")
-google = pd.read_csv("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/google_final.csv")
+main_usage = pd.read_pickle("data/master_usage.pkl")
+google = pd.read_csv("data/google_final.csv")
 
 from app import app
 

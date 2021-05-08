@@ -18,7 +18,7 @@ from dash.dependencies import Input, Output
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/master_usage.pkl")
+df = pd.read_pickle("data/master_usage.pkl")
 dosages = ['1_mg/ml', '25_mg', '15_mg/ml', '50_mg/100ml', '75_mg', '150_mg', '300_mg', 'Other']
 
 #create firm list

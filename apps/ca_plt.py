@@ -20,7 +20,7 @@ from dash.dependencies import Input, Output, State
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/cancer.pkl")
+df = pd.read_pickle("data/cancer.pkl")
 df.sort_values(by=['Firm'], ascending=True, inplace=True)
 firm_list = sorted(list(set(df['Firm'].to_list())))
 # firm_list.remove("")

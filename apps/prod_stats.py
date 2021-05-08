@@ -18,7 +18,7 @@ from dash.dependencies import Input, Output
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/prod_data.pkl")
+df = pd.read_pickle("data/prod_data.pkl")
 # print(df.head())
 # freq = pd.read_csv(r"U:\Projects\Zantac\Code\aggregate_reports\agg_rpt_dash_dfs\freq_data.csv")
 #change the Year column to integer for graphing

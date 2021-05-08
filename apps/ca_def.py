@@ -19,7 +19,7 @@ from dash.dependencies import Input, Output
 import dash_table
 
 """ DATA AND VARIABLES """
-df = pd.read_pickle("/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/cancer.pkl")
+df = pd.read_pickle("data/cancer.pkl")
 
 start_lst = ['All']
 df.sort_values(by=['Firm'], inplace=True)

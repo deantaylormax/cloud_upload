@@ -8,8 +8,8 @@ import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 
-df = pd.read_pickle('/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/master_usage.pkl')
-cancer = pd.read_pickle('/Users/johntaylor/cloud_upload_2/dashboard_4_13_21/design_redo/data/cancer.pkl')
+df = pd.read_pickle('data/master_usage.pkl')
+cancer = pd.read_pickle('data/cancer.pkl')
 
 
 # just_states = df[['SubjectId', 'formulation', 'state_cur', 'State_use']]
