@@ -5,6 +5,8 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 pd.set_option('mode.chained_assignment', None)
 
+# must add this line in order for the app to be deployed successfully on Heroku
+from app import server
 
 from app import app
 from apps import extra_plots, prod_stats, ca_plt, master_use_plt, master_use_def, geo, ca_def, usage_over_time
@@ -107,4 +109,4 @@ def display_page(pathname):
         return prod_stats.layout
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(host='127.0.0.1', debug=True)
