@@ -107,4 +107,4 @@ def display_page(pathname):
         return prod_stats.layout
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
