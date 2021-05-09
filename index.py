@@ -7,7 +7,7 @@ pd.set_option('mode.chained_assignment', None)
 
 
 from app import app
-from apps import extra_plots, prod_stats, ca_plt, master_use_plt, master_use_def, geo, ca_def, usage_over_time
+from apps import prod_stats
 
 
 # app.layout = html.Div([
